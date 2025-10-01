@@ -20,7 +20,7 @@ import { useRouter } from 'vue-router'
 import { useGameStore } from '../stores/game'
 import { usePlayerStore } from '../stores/player'
 import { useGameComparison } from '../composables/useGameComparison'
-import { GameService } from '../api/services/GameService'
+import { useGameLifecycle } from '../composables/useGameLifecycle'
 import { FButton, FButtonIcon } from 'fari-component-library'
 
 const router = useRouter()
@@ -28,14 +28,19 @@ const gameStore = useGameStore()
 const playerStore = usePlayerStore()
 const { data, isLoading, isError, error } = useGameComparison()
 
+const { restart } = useGameLifecycle()
+
 const restartGame = async () => {
-  try {
-    const game = await GameService.restartGame()
-    gameStore.setGame(game)
-    router.push('/game')
-  } catch (error) {
-    console.error('Failed to restart game:', error)
-  }
+  await new Promise((resolve) => {
+    restart.mutate(undefined, {
+      onSuccess: () => resolve(true),
+      onError: (error) => {
+        console.error('Failed to restart game:', error)
+        resolve(false)
+      },
+    })
+  })
+  router.push('/game')
 }
 
 const goToHome = () => {

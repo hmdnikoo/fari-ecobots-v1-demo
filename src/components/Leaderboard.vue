@@ -8,6 +8,9 @@
     </div>
     <div v-else-if="isError" class="error">Failed to load leaderboard: {{ error?.message }}</div>
     <ul v-else class="entries">
+      <p v-if="!sortedLeaderboard.length" class="no-entries font-size-body">
+        No leaderboard entries yet
+      </p>
       <li
         v-for="(entry, index) in sortedLeaderboard"
         :key="entry.firstName"
@@ -102,6 +105,12 @@ $dark-gray: #454545;
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.no-entries {
+  text-align: center;
+  padding: 1rem 0;
+  font-weight: 500;
 }
 
 .entry {

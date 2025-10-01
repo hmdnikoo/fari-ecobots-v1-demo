@@ -13,18 +13,17 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useGameStore } from '../stores/game'
 import { useCreatePlayer } from '../composables/useCreatePlayer'
-import { GameService } from '../api/services/GameService'
+import { useGameLifecycle } from '../composables/useGameLifecycle'
 
 import { FButton } from 'fari-component-library'
 
 const router = useRouter()
-const gameStore = useGameStore()
 const playerName = ref('')
 const errorMessage = ref('')
 
-const { mutate: createPlayer, isPending } = useCreatePlayer()
+const { mutate: createPlayer } = useCreatePlayer()
+const { start } = useGameLifecycle()
 
 const startGame = async () => {
   try {
@@ -38,10 +37,17 @@ const startGame = async () => {
         },
       })
     })
-    const game = await GameService.startGame(gameStore.currentGame?.playerId || '')
-    gameStore.setGame(game)
+    await new Promise((resolve, reject) => {
+      start.mutate(undefined, {
+        onSuccess: () => resolve(true),
+        onError: (error) => {
+          errorMessage.value = 'Failed to start game. Please try again.'
+          reject(error)
+        },
+      })
+    })
     router.push('/game')
-  } catch (error: any) {
+  } catch (error: unknown) {
     errorMessage.value = errorMessage.value || 'Failed to start game. Please try again.'
     console.error('Failed to start game:', error)
   }
