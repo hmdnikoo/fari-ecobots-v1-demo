@@ -11,3 +11,5 @@ export interface GameStats {
 }
 
 export type GameMap = object
+export type GameLiveView = object
+export type GameCompare = object

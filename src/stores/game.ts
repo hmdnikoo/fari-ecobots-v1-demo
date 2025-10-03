@@ -1,11 +1,13 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import type { Game, GameStats, GameMap } from '../api/models/Game'
+import type { Game, GameStats, GameMap, GameLiveView, GameCompare } from '../api/models/Game'
 
 export const useGameStore = defineStore('game', () => {
   const currentGame = ref<Game | null>(null)
   const gameStats = ref<GameStats | null>(null)
   const gameMap = ref<GameMap | null>(null)
+  const gameCompare = ref<GameCompare | null>(null)
+  const gameLiveView = ref<GameLiveView | null>(null)
 
   const setGame = (game: Game) => (currentGame.value = game)
 
@@ -18,5 +20,5 @@ export const useGameStore = defineStore('game', () => {
     gameStats.value = null
   }
 
-  return { currentGame, gameStats, gameMap, setGame, setGameMap, updateStats, resetGame }
+  return { currentGame, gameStats, gameMap, gameLiveView, gameCompare, setGame, setGameMap, updateStats, resetGame }
 })

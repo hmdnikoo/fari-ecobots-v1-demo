@@ -17,3 +17,19 @@ export function useGameMap() {
     },
   })
 }
+
+export function useGameLiveView() {
+  const gameStore = useGameStore()
+  const gameId = computed(() => gameStore.currentGame?.id)
+
+  return useQuery({
+    queryKey: ['gameLiveView', gameId],
+    queryFn: GameService.getGameLiveView,
+    refetchInterval: 1000,
+    onSuccess: (stats) => {
+      console.log({ stats })
+      console.log(gameStore.gameLiveView)
+      gameStore.updateStats(stats)
+    },
+  })
+}

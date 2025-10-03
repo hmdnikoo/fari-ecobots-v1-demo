@@ -17,6 +17,16 @@ export class GameService {
     return response.data
   }
 
+    static async getGameCompare(): Promise<object> {
+    const response = await apiClient.get<object>('/Game/Compare')
+    return response.data
+  }
+
+  static async getGameLiveView(): Promise<object> {
+    const response = await apiClient.get<object>('/Game/GameView')
+    return response.data
+  }
+
   static async restartGame(): Promise<Game> {
     const response = await apiClient.get<Game>('/Game/Restart')
     return response.data

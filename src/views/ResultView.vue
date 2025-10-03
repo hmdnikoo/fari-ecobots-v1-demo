@@ -14,3 +14,8 @@ import GameResult from '../components/GameResult.vue'
   padding: 2rem;
 }
 </style>
+
+
+<script setup lang="ts">
+
+</script>
