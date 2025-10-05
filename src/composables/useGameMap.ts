@@ -10,6 +10,7 @@ export function useGameMap() {
   return useQuery({
     queryKey: ['gameMap', gameId],
     queryFn: GameService.getGameMap,
+    refetchInterval: 1000,
     onSuccess: (stats) => {
       console.log({ stats })
       console.log(gameStore.gameMap)
