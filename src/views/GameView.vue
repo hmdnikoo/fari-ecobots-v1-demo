@@ -10,9 +10,9 @@
   </FAppBar>
   <div class="game-view bg-color-primary">
     <div class="game-map bg-color-blue rounded">
-       <div>
-         <img v-if="liveMap" :src="liveMap?.gameView" />
-       </div>
+      <div>
+        <img v-if="liveMap" :src="liveMap?.gameView" />
+      </div>
     </div>
     <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
   </div>
@@ -46,7 +46,6 @@ const endGame = () => router.push('/result')
 watch(gameStats, (newStats) => {
   if (newStats?.gameState === 'end') router.push('/result')
 })
-
 
 const refetch = async () => {
   errorMessage.value = ''

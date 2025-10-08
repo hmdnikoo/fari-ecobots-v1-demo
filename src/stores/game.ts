@@ -20,5 +20,15 @@ export const useGameStore = defineStore('game', () => {
     gameStats.value = null
   }
 
-  return { currentGame, gameStats, gameMap, gameLiveView, gameCompare, setGame, setGameMap, updateStats, resetGame }
+  return {
+    currentGame,
+    gameStats,
+    gameMap,
+    gameLiveView,
+    gameCompare,
+    setGame,
+    setGameMap,
+    updateStats,
+    resetGame,
+  }
 })
