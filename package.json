@@ -22,7 +22,7 @@
     "axios": "^1.12.2",
     "fari-component-library": "^0.6.8",
     "fari-directus-parser": "^1.0.67",
-    "pinia": "^3.0.3",
+    "pinia": "^3.0.4",
     "scss": "^0.2.4",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"

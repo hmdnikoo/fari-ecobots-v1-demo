@@ -9,7 +9,11 @@ export function useGameCompare() {
 
   return useQuery({
     queryKey: ['gameCompare', gameId],
-    queryFn: GameService.getGameCompare,
+    queryFn: async () => {
+      const userPins = gameStore.gameUserRoute || {}
+      const result = await GameService.getGameCompare(userPins)
+      return result
+    },
     onSuccess: (stats) => {
       console.log({ stats })
       console.log(gameStore.gameCompare)

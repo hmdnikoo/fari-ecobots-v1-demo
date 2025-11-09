@@ -17,8 +17,8 @@ export class GameService {
     return response.data
   }
 
-  static async getGameCompare(): Promise<object> {
-    const response = await apiClient.get<object>('/Game/Compare')
+  static async getGameCompare(userPins: any): Promise<object> {
+    const response = await apiClient.post<object>('/Game/Result', userPins)
     return response.data
   }
 

@@ -2,14 +2,14 @@
   <div class="home-view">
     <FTitle class="title">Ecobots</FTitle>
     <div class="content">
-      <Leaderboard />
+      <InfoBoard />
       <FButton onDark label="Play" @click="goToManual" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import Leaderboard from '../components/Leaderboard.vue'
+import InfoBoard from '../components/InfoBoard.vue'
 import { FTitle, FButton } from 'fari-component-library'
 
 import { useRouter } from 'vue-router'
