@@ -2,7 +2,7 @@
   <div class="result-view">
     <FAppBar dense>
       <template #title>
-        <FSubTitle>Playing as {{ playerStore.player?.name ?? 'Guest' }}</FSubTitle>
+        <FSubTitle>Running as {{ playerStore.player?.name ?? 'Guest' }}</FSubTitle>
       </template>
       <template #actions>
         <div class="actions">

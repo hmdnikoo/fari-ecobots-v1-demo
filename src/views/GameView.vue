@@ -1,7 +1,7 @@
 <template>
   <FAppBar>
     <template #title>
-      <FSubTitle>Playing as {{ playerStore.player?.name ?? 'Guest' }}</FSubTitle>
+      <FSubTitle>Running as {{ playerStore.player?.name ?? 'Guest' }}</FSubTitle>
     </template>
     <template #actions>
       <FButtonIcon name="cross" color="red" small @click="endGame" />

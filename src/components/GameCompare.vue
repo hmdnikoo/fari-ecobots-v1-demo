@@ -13,7 +13,7 @@
 
       <div class="stats bg-color-blue-light rounded-s p-sm mx-l">
         <h3>
-          Rank Time: <strong class="font-weight-bold"> {{ compareData?.rankTime }}</strong>
+          Run Time: <strong class="font-weight-bold"> {{ compareData?.runTime }}</strong>
         </h3>
         <h3>
           Battery Degradation:
@@ -43,7 +43,7 @@
         </div>
 
         <div class="stats bg-color-blue-light rounded-s p-sm mx-l">
-          <h3>Rank Time: {{ compareData?.rankTime }}</h3>
+          <h3>Run Time: {{ compareData?.runTime }}</h3>
           <h3>Battery Degradation: {{ compareData?.batteryDegradation }}</h3>
           <h3>Power Consumption: {{ compareData?.powerConsumption }}</h3>
           <h3 v-if="compareData?.score">Score: {{ compareData?.score }}</h3>
@@ -61,7 +61,7 @@ import { FDivider } from 'fari-component-library'
 
 interface CompareData {
   pathImage: string
-  rankTime: string
+  runTime: string
   batteryDegradation: string
   powerConsumption: string
   score?: number
@@ -107,7 +107,7 @@ const getImgSrc = () => (props.type === 'human' ? HumanAvatar : AiAvatar)
     max-height: 15rem;
 
     .result-map {
-      transform: rotate(90deg);
+      transform: rotate(-90deg);
       transform-origin: center;
       height: 30rem;
       object-fit: contain;

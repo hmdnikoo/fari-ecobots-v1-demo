@@ -13,6 +13,7 @@ const emit = defineEmits(['start'])
 
 <style scoped lang="scss">
 .text-input-container {
+  justify-content: center;
   display: flex;
   align-items: center;
   border-radius: 3rem;

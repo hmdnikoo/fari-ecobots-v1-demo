@@ -1,12 +1,13 @@
 <template>
   <div class="game-result">
-    <h1><b>Game Over</b></h1>
+    <h1><b>Comparative Results</b></h1>
     <div v-if="isLoading">Loading...</div>
     <div v-else-if="isError">Failed to load comparison: {{ error?.message }}</div>
 
     <div class="rounded p-md mx-auto" v-else>
-      <p>Your Score: {{ data?.playerScore ?? 'N/A' }}</p>
-      <p>AI Score: {{ data?.aiScore ?? 'N/A' }}</p>
+      <p>Your Score: {{ compareData?.user.score ?? 'N/A' }}</p>
+      <!-- <p>Your Score: {{ data?.playerScore ?? 'N/A' }}</p> -->
+      <!-- <p>AI Score: {{ data?.aiScore ?? 'N/A' }}</p> -->
     </div>
 
     <div class="compare-wrapper">

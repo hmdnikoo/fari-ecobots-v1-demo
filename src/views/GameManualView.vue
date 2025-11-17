@@ -9,7 +9,7 @@
         </template>
 
         <div class="instruction-text">
-          <p class="font-size-body">Draw a path from start to finish with limited battery.</p>
+          <p class="font-size-body">Put pins from start to finish with limited battery.</p>
           <p class="font-size-body">The robot follows your plan, then we compare it with AI path finder.</p>
         </div>
 
