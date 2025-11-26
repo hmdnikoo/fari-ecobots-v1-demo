@@ -163,7 +163,7 @@ const getImgSrc = () => (props.type === 'human' ? HumanAvatar : AiAvatar)
 
     .dialog-image {
       position: absolute;
-      transform: rotate(90deg);
+      transform: rotate(-90deg);
       transform-origin: center;
       height: 70vh;
       width: auto;
