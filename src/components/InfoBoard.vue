@@ -1,8 +1,29 @@
 <template>
   <div class="leaderboard bg-color-blue p-md">
-    <h1 class="title">Information</h1>
-    <div class="divider bg-color-primary"></div>
+    <h1 class="title">Energy-Aware Path Planning</h1>
+    <div class="divider bg-color-primary">
     </div>
+    <div class="info-container">
+      <p>Robots should be both ecologically and economically sustainable, and using their battery power wisely is a key
+        part of that. In many environments, mobile robots can harvest energy. for example, through wireless or static
+        charging zones, but doing so efficiently requires smart decision-making.</p>
+
+      <p><span style="font-weight: 900;">ECOBOTS</span> demonstrates how robots can use this information to operate longer and more reliably.
+      </p>
+
+      <p>Instead of only taking the shortest path, ECOBOTS:</p>
+
+      <ul>
+        <li>Monitors the robot’s battery level</li>
+        <li>Detects nearby energy-harvesting areas</li>
+        <li>Adjusts the route or speed to collect energy when needed</li>
+        <li>Still aims to reach the goal efficiently</li>
+      </ul>
+
+      <p>This <span style="font-weight: 900;">energy-aware path planning</span> approach helps robots stay powered longer, reduce downtime,
+        and operate more sustainably.</p>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -20,8 +41,18 @@ $magenta: #b93080;
 $white: #ffffff;
 $dark-gray: #454545;
 
+.info-container {
+  // font-family: 'Times New Roman', Times, serif;
+  padding: 20px;
+  border-radius: 8px;
+  // max-width: 800px;
+  margin: auto;
+  font-size: 13pt;
+  font-weight: bold;
+}
+
 .leaderboard {
-  width: 30rem;
+  width: 60rem;
   max-width: 100%;
   margin: 0 auto;
   border-radius: 0.75rem;
@@ -98,25 +129,22 @@ $dark-gray: #454545;
   }
 
   &.top-1 {
-    background: linear-gradient(
-      90deg,
-      rgba($yellow, 0.3),
-      rgba($turquoise, 0.2),
-      rgba($white, 0.1)
-    );
+    background: linear-gradient(90deg,
+        rgba($yellow, 0.3),
+        rgba($turquoise, 0.2),
+        rgba($white, 0.1));
     border: 1px solid rgba($yellow, 0.5);
+
     &:hover {
       transform: translateY(-4px);
     }
   }
 
   &.top-2 {
-    background: linear-gradient(
-      90deg,
-      rgba($light-blue, 0.3),
-      rgba($primary-blue, 0.2),
-      rgba($white, 0.1)
-    );
+    background: linear-gradient(90deg,
+        rgba($light-blue, 0.3),
+        rgba($primary-blue, 0.2),
+        rgba($white, 0.1));
     border: 1px solid rgba($light-blue, 0.5);
 
     &:hover {
@@ -125,12 +153,10 @@ $dark-gray: #454545;
   }
 
   &.top-3 {
-    background: linear-gradient(
-      90deg,
-      rgba($magenta, 0.3),
-      rgba($light-blue, 0.2),
-      rgba($white, 0.1)
-    );
+    background: linear-gradient(90deg,
+        rgba($magenta, 0.3),
+        rgba($light-blue, 0.2),
+        rgba($white, 0.1));
     border: 1px solid rgba($magenta, 0.5);
 
     &:hover {
@@ -184,6 +210,7 @@ $dark-gray: #454545;
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

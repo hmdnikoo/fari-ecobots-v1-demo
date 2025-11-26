@@ -1,6 +1,6 @@
 <template>
   <div class="text-input-container">
-    <FButton type="primary" label="Start game!" @click="emit('start')" />
+    <FButton type="primary" label="Compare" @click="emit('start')" />
   </div>
 </template>
 

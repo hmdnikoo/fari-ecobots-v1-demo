@@ -3,7 +3,7 @@
     <FTitle class="title">Ecobots</FTitle>
     <div class="content">
       <InfoBoard />
-      <FButton onDark label="Play" @click="goToManual" />
+      <FButton onDark label="Next" @click="goToManual" />
     </div>
   </div>
 </template>
